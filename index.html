@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithm Design Principles – Interactive Simulation</title>
+  
+  <!-- Modern Meta & Fonts -->
+  <meta name="description" content="A modern, interactive educational simulation for the four foundational algorithm design principles: Divide & Conquer, Greedy Method, Dynamic Programming, and Backtracking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/simulations.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP NAVIGATION BAR
+       ======================================================================== -->
+  <nav class="navbar" id="top-nav">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-badge">⚡</div>
+        <div class="brand-text">
+          <span class="brand-title">ALGO·LAB</span>
+          <span class="brand-dept">CSE (Data Science)</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#simulations" class="nav-link">Simulations</a></li>
+        <li><a href="#comparison" class="nav-link">Comparison</a></li>
+        <li><a href="#flowchart" class="nav-link">Flow Diagram</a></li>
+        <li><a href="#learn" class="nav-link">Learn</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#simulations" class="btn btn-primary btn-sm">Launch Studio →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       1. HERO SECTION
+       ======================================================================== -->
+  <header class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-pill">
+        <span>✨ Interactive Algorithm Playground</span>
+      </div>
+      <h1 class="hero-title">Algorithm Design Principles</h1>
+      <p class="hero-subtitle">
+        Visualize how different algorithmic strategies solve problems through step-by-step interactive simulations.
+      </p>
+
+      <!-- 4 Interactive Cards -->
+      <div class="hero-cards-grid">
+        <!-- Card 1: Divide & Conquer -->
+        <div class="hero-card hero-card-1" data-algo="merge-sort">
+          <div class="card-top">
+            <div class="card-icon">⑂</div>
+            <span class="card-complexity">O(n log n)</span>
+          </div>
+          <span class="card-paradigm">Divide & Conquer</span>
+          <h3 class="card-title">Divide & Conquer</h3>
+          <p class="card-desc">
+            Recursively decomposes problems into disjoint subproblems, solves each independently, and combines their solutions.
+          </p>
+          <div class="card-example-tag">
+            <span>Simulation:</span> <strong>Merge Sort</strong>
+          </div>
+          <button class="btn-simulate">
+            <span>Simulate</span>
+            <span class="arrow-icon">→</span>
+          </button>
+        </div>
+
+        <!-- Card 2: Greedy Method -->
+        <div class="hero-card hero-card-2" data-algo="greedy">
+          <div class="card-top">
+            <div class="card-icon">🎯</div>
+            <span class="card-complexity">O(n log n)</span>
+          </div>
+          <span class="card-paradigm">Greedy Method</span>
+          <h3 class="card-title">Greedy Method</h3>
+          <p class="card-desc">
+            Constructs a global solution by making immediate, irrevocable locally optimal decisions at every step without backtracking.
+          </p>
+          <div class="card-example-tag">
+            <span>Simulation:</span> <strong>Activity Selection</strong>
+          </div>
+          <button class="btn-simulate">
+            <span>Simulate</span>
+            <span class="arrow-icon">→</span>
+          </button>
+        </div>
+
+        <!-- Card 3: Dynamic Programming -->
+        <div class="hero-card hero-card-3" data-algo="knapsack">
+          <div class="card-top">
+            <div class="card-icon">▦</div>
+            <span class="card-complexity">O(nW)</span>
+          </div>
+          <span class="card-paradigm">Dynamic Programming</span>
+          <h3 class="card-title">Dynamic Programming</h3>
+          <p class="card-desc">
+            Solves complex problems by caching solutions to overlapping subproblems in memory to guarantee global optimality.
+          </p>
+          <div class="card-example-tag">
+            <span>Simulation:</span> <strong>0/1 Knapsack</strong>
+          </div>
+          <button class="btn-simulate">
+            <span>Simulate</span>
+            <span class="arrow-icon">→</span>
+          </button>
+        </div>
+
+        <!-- Card 4: Backtracking -->
+        <div class="hero-card hero-card-4" data-algo="nqueens">
+          <div class="card-top">
+            <div class="card-icon">♛</div>
+            <span class="card-complexity">O(N!)</span>
+          </div>
+          <span class="card-paradigm">Backtracking</span>
+          <h3 class="card-title">Backtracking</h3>
+          <p class="card-desc">
+            Incrementally builds candidate solutions, pruning entire subtrees and backtracking immediately upon constraint violation.
+          </p>
+          <div class="card-example-tag">
+            <span>Simulation:</span> <strong>N-Queens</strong>
+          </div>
+          <button class="btn-simulate">
+            <span>Simulate</span>
+            <span class="arrow-icon">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. INTERACTIVE SIMULATION AREA
+       ======================================================================== -->
+  <section class="simulation-section" id="simulations">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Interactive Studio</div>
+        <h2 class="section-title">Live Algorithmic Simulations</h2>
+        <p class="section-subtitle">
+          Observe algorithms execute in real time. Step forward, inspect intermediate states, and modify input parameters.
+        </p>
+      </div>
+
+      <!-- Tab Navigation Switcher -->
+      <div class="sim-nav-tabs">
+        <button class="sim-tab-btn active" data-algo="merge-sort">
+          <span class="tab-num">1</span>
+          <span>Divide & Conquer</span>
+        </button>
+        <button class="sim-tab-btn" data-algo="greedy">
+          <span class="tab-num">2</span>
+          <span>Greedy Method</span>
+        </button>
+        <button class="sim-tab-btn" data-algo="knapsack">
+          <span class="tab-num">3</span>
+          <span>Dynamic Programming</span>
+        </button>
+        <button class="sim-tab-btn" data-algo="nqueens">
+          <span class="tab-num">4</span>
+          <span>Backtracking</span>
+        </button>
+      </div>
+
+      <!-- ====================================================================
+           SIMULATION 1: DIVIDE & CONQUER (Merge Sort)
+           ==================================================================== -->
+      <div class="sim-viewport active" id="viewport-merge-sort">
+        <div class="sim-stage-card">
+          <div class="sim-header-box">
+            <div class="sim-header-info">
+              <h3><span>⑂</span> Divide & Conquer: Merge Sort</h3>
+              <p>Watch recursive decomposition into base units followed by bottom-up linear merging.</p>
+            </div>
+            <div class="sim-input-row">
+              <input type="text" id="merge-custom-input" class="input-field" value="38, 27, 43, 3, 9, 82, 10" title="Comma-separated numbers">
+              <button class="btn btn-secondary btn-sm" id="merge-apply-btn">Apply Array</button>
+              <button class="btn btn-secondary btn-sm" id="merge-random-btn">Randomize 🎲</button>
+            </div>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="sim-controls-bar">
+            <div class="controls-group">
+              <button class="btn btn-primary btn-sm" id="merge-play-btn">▶ Start</button>
+              <button class="btn btn-secondary btn-sm" id="merge-pause-btn" style="display: none;">⏸ Pause</button>
+              <button class="btn btn-secondary btn-sm" id="merge-step-fwd-btn">⏭ Step Forward</button>
+              <button class="btn btn-secondary btn-sm" id="merge-step-back-btn">⏮ Step Back</button>
+              <button class="btn btn-secondary btn-sm" id="merge-reset-btn">🔄 Reset</button>
+            </div>
+            <div class="speed-control">
+              <span>Speed:</span>
+              <input type="range" id="merge-speed-range" min="1" max="5" value="3">
+            </div>
+          </div>
+
+          <!-- Live Metric Stats -->
+          <div class="sim-stats-grid">
+            <div class="stat-chip">
+              <span class="stat-label">Current Step</span>
+              <span class="stat-value" id="merge-step-num">1 / 1</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Comparisons</span>
+              <span class="stat-value" id="merge-comparisons">0</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Array Size (n)</span>
+              <span class="stat-value" id="merge-array-size">7</span>
+            </div>
+            <div class="stat-chip accent">
+              <span class="stat-label">Time Complexity</span>
+              <span class="stat-value">O(n log n)</span>
+            </div>
+          </div>
+
+          <!-- Live Step Narrative -->
+          <div class="sim-narrative">
+            <div class="narrative-icon">ℹ️</div>
+            <div class="narrative-text" id="merge-narrative-text">
+              Original Array [38, 27, 43, 3, 9, 82, 10] ready to divide.
+            </div>
+            <span class="narrative-step">Phase: Divide & Conquer</span>
+          </div>
+
+          <!-- Visualization Tree Stage -->
+          <div class="merge-tree-wrapper" id="merge-tree-display">
+            <!-- Rendered dynamically by mergeSortSim.js -->
+          </div>
+
+          <!-- Live Compare Arena -->
+          <div class="merge-compare-arena">
+            <div class="compare-box">
+              <span class="compare-box-label">Left Pointer Element</span>
+              <div class="array-node compare-left" id="merge-left-val">—</div>
+            </div>
+            <div class="compare-vs-pill">VS</div>
+            <div class="compare-box">
+              <span class="compare-box-label">Right Pointer Element</span>
+              <div class="array-node compare-right" id="merge-right-val">—</div>
+            </div>
+            <div class="compare-box" style="flex: 1; text-align: center;">
+              <span class="compare-box-label">Merge Decision Rationale</span>
+              <span id="merge-arena-desc" style="font-weight: 600; font-size: 0.9rem; color: var(--text-primary);">
+                Awaiting comparison...
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           SIMULATION 2: GREEDY METHOD (Activity Selection)
+           ==================================================================== -->
+      <div class="sim-viewport" id="viewport-greedy">
+        <div class="sim-stage-card">
+          <div class="sim-header-box">
+            <div class="sim-header-info">
+              <h3><span>🎯</span> Greedy Method: Activity Selection Problem</h3>
+              <p>Greedy Choice: Pick activity with earliest finish time to maximize available future time slots.</p>
+            </div>
+            <div class="badge badge-emerald">
+              Strategy: Earliest Finish Time (f<sub>i</sub>)
+            </div>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="sim-controls-bar">
+            <div class="controls-group">
+              <button class="btn btn-primary btn-sm" id="greedy-play-btn">▶ Start</button>
+              <button class="btn btn-secondary btn-sm" id="greedy-pause-btn" style="display: none;">⏸ Pause</button>
+              <button class="btn btn-secondary btn-sm" id="greedy-step-fwd-btn">⏭ Step Forward</button>
+              <button class="btn btn-secondary btn-sm" id="greedy-step-back-btn">⏮ Step Back</button>
+              <button class="btn btn-secondary btn-sm" id="greedy-reset-btn">🔄 Reset</button>
+            </div>
+            <div class="speed-control">
+              <span>Speed:</span>
+              <input type="range" id="greedy-speed-range" min="1" max="5" value="3">
+            </div>
+          </div>
+
+          <!-- Live Metric Stats -->
+          <div class="sim-stats-grid">
+            <div class="stat-chip">
+              <span class="stat-label">Current Step</span>
+              <span class="stat-value" id="greedy-step-num">1 / 1</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Selected Count</span>
+              <span class="stat-value" id="greedy-selected-count">0</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Selected Set</span>
+              <span class="stat-value" id="greedy-selected-list" style="font-size: 1rem;">None</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Rejected Count</span>
+              <span class="stat-value" id="greedy-rejected-count">0</span>
+            </div>
+            <div class="stat-chip accent">
+              <span class="stat-label">Time Complexity</span>
+              <span class="stat-value">O(n log n)</span>
+            </div>
+          </div>
+
+          <!-- Live Step Narrative -->
+          <div class="sim-narrative">
+            <div class="narrative-icon">ℹ️</div>
+            <div class="narrative-text" id="greedy-narrative-text">
+              Initial activities loaded. Press Start or Step Forward to sort by finish time and apply the greedy choice.
+            </div>
+            <span class="narrative-step">Strategy: Greedy Choice</span>
+          </div>
+
+          <!-- Split View: Activities Card List & Gantt Timeline -->
+          <div class="greedy-container">
+            <!-- Activities Column -->
+            <div class="activities-list-card">
+              <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+                Candidate Activities
+              </div>
+              <div id="greedy-activities-list">
+                <!-- Dynamically generated items A1..A6 -->
+              </div>
+            </div>
+
+            <!-- Gantt Timeline Column -->
+            <div class="timeline-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary);">
+                  Interactive Time Schedule (0:00 – 12:00)
+                </span>
+                <span style="font-size: 0.775rem; color: var(--text-tertiary);">
+                  Green = Selected | Red = Overlapping Conflict
+                </span>
+              </div>
+
+              <!-- Time Ruler -->
+              <div class="timeline-ruler">
+                <div class="time-tick">0</div>
+                <div class="time-tick">1</div>
+                <div class="time-tick">2</div>
+                <div class="time-tick">3</div>
+                <div class="time-tick">4</div>
+                <div class="time-tick">5</div>
+                <div class="time-tick">6</div>
+                <div class="time-tick">7</div>
+                <div class="time-tick">8</div>
+                <div class="time-tick">9</div>
+                <div class="time-tick">10</div>
+                <div class="time-tick">11</div>
+                <div class="time-tick">12</div>
+              </div>
+
+              <!-- Tracks Container -->
+              <div class="timeline-tracks" id="greedy-timeline-tracks">
+                <div class="time-cursor" id="greedy-time-cursor" style="display: none;"></div>
+                <!-- Dynamic Gantt bars -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           SIMULATION 3: DYNAMIC PROGRAMMING (0/1 Knapsack)
+           ==================================================================== -->
+      <div class="sim-viewport" id="viewport-knapsack">
+        <div class="sim-stage-card">
+          <div class="sim-header-box">
+            <div class="sim-header-info">
+              <h3><span>▦</span> Dynamic Programming: 0/1 Knapsack Simulation</h3>
+              <p>Optimal Substructure & Memoization: Click any cell in the table to inspect its formula and subproblems.</p>
+            </div>
+            <div class="sim-input-row">
+              <label for="knap-capacity-input" style="font-size: 0.85rem; font-weight: 600;">Capacity (W):</label>
+              <input type="number" id="knap-capacity-input" class="input-field" min="3" max="10" value="7" style="width: 70px;">
+              <button class="btn btn-secondary btn-sm knap-preset-btn" data-preset="default">Default Items</button>
+              <button class="btn btn-secondary btn-sm knap-preset-btn" data-preset="electronics">Tech Preset</button>
+            </div>
+          </div>
+
+          <!-- Items Strip -->
+          <div class="knapsack-config-strip">
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">Available Items:</span>
+            <div class="items-tag-list">
+              <span class="item-chip">1. Laptop (wt: 2, val: $3)</span>
+              <span class="item-chip">2. Camera (wt: 3, val: $4)</span>
+              <span class="item-chip">3. Tablet (wt: 4, val: $5)</span>
+              <span class="item-chip">4. Drone (wt: 5, val: $8)</span>
+            </div>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="sim-controls-bar">
+            <div class="controls-group">
+              <button class="btn btn-primary btn-sm" id="dp-play-btn">▶ Start</button>
+              <button class="btn btn-secondary btn-sm" id="dp-pause-btn" style="display: none;">⏸ Pause</button>
+              <button class="btn btn-secondary btn-sm" id="dp-step-fwd-btn">⏭ Step Forward</button>
+              <button class="btn btn-secondary btn-sm" id="dp-step-back-btn">⏮ Step Back</button>
+              <button class="btn btn-secondary btn-sm" id="dp-reset-btn">🔄 Reset</button>
+            </div>
+            <div class="speed-control">
+              <span>Speed:</span>
+              <input type="range" id="dp-speed-range" min="1" max="5" value="3">
+            </div>
+          </div>
+
+          <!-- Live Metric Stats -->
+          <div class="sim-stats-grid">
+            <div class="stat-chip">
+              <span class="stat-label">Current Step</span>
+              <span class="stat-value" id="dp-step-num">1 / 1</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Cell Subproblem</span>
+              <span class="stat-value" id="dp-current-cell">DP[0][0]</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Max Value Recorded</span>
+              <span class="stat-value" id="dp-max-value">0</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">DP Stage</span>
+              <span class="stat-value" id="dp-subproblem-phase" style="font-size: 0.95rem;">Subproblem</span>
+            </div>
+            <div class="stat-chip accent">
+              <span class="stat-label">Time Complexity</span>
+              <span class="stat-value">O(n·W)</span>
+            </div>
+          </div>
+
+          <!-- Live Step Narrative -->
+          <div class="sim-narrative">
+            <div class="narrative-icon">ℹ️</div>
+            <div class="narrative-text" id="dp-narrative-text">
+              Tabulation table ready. Initializing base conditions DP[0][w] = 0 and DP[i][0] = 0.
+            </div>
+            <span class="narrative-step">Subproblem → Tabulation</span>
+          </div>
+
+          <!-- Dynamic Programming Table -->
+          <div class="dp-table-container" id="dp-table-container">
+            <!-- Table dynamically injected by knapsackSim.js -->
+          </div>
+
+          <!-- Clickable DP Cell Inspector Card (Mandatory Feature) -->
+          <div class="dp-inspector-card" id="dp-inspector-card" style="margin-top: 1.5rem;">
+            <div class="inspector-header">
+              <div class="inspector-title">
+                <span>🔍</span> Interactive DP Cell Inspector (Click any cell in table)
+              </div>
+              <span class="badge badge-purple" id="insp-coord">DP[4][7]</span>
+            </div>
+            <div class="inspector-grid">
+              <div class="inspector-box">
+                <div class="box-label">Current Capacity (w)</div>
+                <div class="box-val" id="insp-capacity">7 units</div>
+              </div>
+              <div class="inspector-box">
+                <div class="box-label">Items Considered</div>
+                <div class="box-val" id="insp-items" style="font-size: 0.85rem;">Items 1 to 4</div>
+              </div>
+              <div class="inspector-box">
+                <div class="box-label">Cell Value (DP[i][w])</div>
+                <div class="box-val" id="insp-val" style="color: var(--accent-primary);">$11</div>
+              </div>
+              <div class="inspector-box">
+                <div class="box-label">Decision</div>
+                <div class="box-val" id="insp-decision" style="font-size: 0.85rem; color: #15803d;">Included Item</div>
+              </div>
+            </div>
+            <div class="inspector-box">
+              <div class="box-label">Previous Subproblem State Comparison</div>
+              <div class="box-val" id="insp-prev-state" style="font-size: 0.875rem;">
+                Exclude: DP[3][7] = $9 | Include: DP[3][2] ($3) + $8 = $11
+              </div>
+            </div>
+            <div class="inspector-formula-box" id="insp-formula">
+              DP[i][w] = max(DP[i-1][w], DP[i-1][w-wi] + vi) = max(9, 3 + 8) = 11
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           SIMULATION 4: BACKTRACKING (N-Queens)
+           ==================================================================== -->
+      <div class="sim-viewport" id="viewport-nqueens">
+        <div class="sim-stage-card">
+          <div class="sim-header-box">
+            <div class="sim-header-info">
+              <h3><span>♛</span> Backtracking: N-Queens Visualization</h3>
+              <p>Systematic depth-first candidate placement with constraint ray checking and state rollback.</p>
+            </div>
+            <div class="sim-input-row">
+              <span style="font-size: 0.85rem; font-weight: 600;">Board Size (N):</span>
+              <div class="btn-group">
+                <button class="btn btn-secondary btn-sm nqueens-n-btn active" data-n="4">N = 4</button>
+                <button class="btn btn-secondary btn-sm nqueens-n-btn" data-n="5">N = 5</button>
+                <button class="btn btn-secondary btn-sm nqueens-n-btn" data-n="6">N = 6</button>
+                <button class="btn btn-secondary btn-sm nqueens-n-btn" data-n="8">N = 8</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="sim-controls-bar">
+            <div class="controls-group">
+              <button class="btn btn-primary btn-sm" id="nqueens-play-btn">▶ Start</button>
+              <button class="btn btn-secondary btn-sm" id="nqueens-pause-btn" style="display: none;">⏸ Pause</button>
+              <button class="btn btn-secondary btn-sm" id="nqueens-step-fwd-btn">⏭ Step Forward</button>
+              <button class="btn btn-secondary btn-sm" id="nqueens-step-back-btn">⏮ Step Back</button>
+              <button class="btn btn-secondary btn-sm" id="nqueens-reset-btn">🔄 Reset</button>
+            </div>
+            <div class="speed-control">
+              <span>Speed:</span>
+              <input type="range" id="nqueens-speed-range" min="1" max="5" value="3">
+            </div>
+          </div>
+
+          <!-- Live Metric Stats -->
+          <div class="sim-stats-grid">
+            <div class="stat-chip">
+              <span class="stat-label">Current Step</span>
+              <span class="stat-value" id="nqueens-step-num">1 / 1</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Current Row</span>
+              <span class="stat-value" id="nqueens-current-row">Row 1 / 4</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Queens Placed</span>
+              <span class="stat-value" id="nqueens-placed-count">0</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Backtracks</span>
+              <span class="stat-value" id="nqueens-backtrack-count">0</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-label">Solutions Found</span>
+              <span class="stat-value" id="nqueens-solutions-count" style="color: #10b981;">0</span>
+            </div>
+            <div class="stat-chip accent">
+              <span class="stat-label">Time Complexity</span>
+              <span class="stat-value">O(N!)</span>
+            </div>
+          </div>
+
+          <!-- Live Step Narrative -->
+          <div class="sim-narrative">
+            <div class="narrative-icon">ℹ️</div>
+            <div class="narrative-text" id="nqueens-narrative-text">
+              Chessboard ready for N = 4. Step forward or press Start to begin placing queens row-by-row.
+            </div>
+            <span class="badge badge-amber" id="nqueens-phase-badge">TRY</span>
+          </div>
+
+          <!-- Chessboard & Backtracking Inspector -->
+          <div class="nqueens-layout">
+            <div class="chessboard-wrapper">
+              <div class="chessboard-grid" id="nqueens-board">
+                <!-- Dynamically generated chessboard grid -->
+              </div>
+            </div>
+
+            <!-- Backtrack Sequence State Panel -->
+            <div class="nqueens-sidebar">
+              <div class="conflict-alert" id="nqueens-conflict-alert" style="display: none;">
+                <!-- Conflict description -->
+              </div>
+
+              <div class="learn-card" style="padding: 1.25rem;">
+                <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+                  Backtracking State Machine:
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.7; color: var(--text-secondary);">
+                  <div>1. <strong>TRY:</strong> Place queen at (row, col)</div>
+                  <div>2. <strong>CHECK:</strong> Test col & diagonals</div>
+                  <div>3. <strong>VALID?:</strong></div>
+                  <div style="padding-left: 1rem; color: #15803d;">↳ YES → <strong>PLACE QUEEN</strong> → Row + 1</div>
+                  <div style="padding-left: 1rem; color: #b91c1c;">↳ NO → <strong>BACKTRACK</strong> → Try next col</div>
+                </div>
+              </div>
+
+              <div class="solution-badge-card">
+                <span>🏆</span>
+                <div>
+                  <strong>Non-Attacking Guarantee:</strong>
+                  <div style="font-size: 0.8rem; opacity: 0.9;">No two queens share same row, column, or diagonal.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. ALGORITHM COMPARISON SECTION
+       ======================================================================== -->
+  <section class="comparison-section" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Comparison Matrix</div>
+        <h2 class="section-title">Comparative Analysis of Design Principles</h2>
+        <p class="section-subtitle">
+          Understanding the mathematical nature of each algorithmic paradigm, their prerequisites, and computational complexities.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="algo-table">
+          <thead>
+            <tr>
+              <th>Principle</th>
+              <th>Main Idea</th>
+              <th>Example Problem</th>
+              <th>Typical Complexity</th>
+              <th>Core Prerequisite</th>
+              <th>Subproblem Nature</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="algo-principle-cell">
+                  <div class="algo-pill-icon" style="background: rgba(14, 165, 233, 0.12); color: #0284c7;">⑂</div>
+                  <div>Divide & Conquer</div>
+                </div>
+              </td>
+              <td>Divide problem into smaller disjoint parts, solve recursively, and combine solutions.</td>
+              <td><span class="badge badge-blue">Merge Sort</span></td>
+              <td><span class="mono" style="font-weight: 700;">O(n log n)</span></td>
+              <td>Independence of subproblems</td>
+              <td>Disjoint & non-overlapping</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="algo-principle-cell">
+                  <div class="algo-pill-icon" style="background: rgba(16, 185, 129, 0.12); color: #059669;">🎯</div>
+                  <div>Greedy Method</div>
+                </div>
+              </td>
+              <td>Make irrevocable locally optimal choices at each step, aiming for global optimum.</td>
+              <td><span class="badge badge-emerald">Activity Selection</span></td>
+              <td><span class="mono" style="font-weight: 700;">O(n log n)</span></td>
+              <td>Greedy Choice Property + Optimal Substructure</td>
+              <td>Sequential decision points</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="algo-principle-cell">
+                  <div class="algo-pill-icon" style="background: rgba(139, 92, 246, 0.12); color: #7c3aed;">▦</div>
+                  <div>Dynamic Programming</div>
+                </div>
+              </td>
+              <td>Store and reuse subproblem results (memoization/tabulation) to prevent duplicate work.</td>
+              <td><span class="badge badge-purple">0/1 Knapsack</span></td>
+              <td><span class="mono" style="font-weight: 700;">O(nW)</span></td>
+              <td>Overlapping Subproblems + Optimal Substructure</td>
+              <td>Heavily overlapping subproblems</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="algo-principle-cell">
+                  <div class="algo-pill-icon" style="background: rgba(245, 158, 11, 0.12); color: #d97706;">♛</div>
+                  <div>Backtracking</div>
+                </div>
+              </td>
+              <td>Explore candidate configurations depth-first and undo (backtrack) invalid choices.</td>
+              <td><span class="badge badge-amber">N-Queens</span></td>
+              <td><span class="mono" style="font-weight: 700;">O(N!)</span></td>
+              <td>Prunable constraint satisfaction search space</td>
+              <td>Combinatorial tree traversal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="comparison-callout">
+        <div class="comparison-callout-icon">💡</div>
+        <div>
+          <strong style="color: var(--text-primary); font-size: 0.95rem;">Architectural Insight:</strong>
+          <p style="font-size: 0.9rem; margin-top: 0.25rem;">
+            No single algorithm design principle is universally “best”. An algorithm's correctness and optimality strictly depend on the problem’s structural properties: if subproblems are independent, use <strong>Divide & Conquer</strong>; if the greedy choice is mathematically guaranteed to yield the optimum, use <strong>Greedy</strong>; if subproblems overlap, use <strong>Dynamic Programming</strong>; and for combinatorial constraint satisfaction, use <strong>Backtracking</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. ALGORITHM FLOW VISUALIZATION (Animated Flow Diagram)
+       ======================================================================== -->
+  <section class="flowchart-section" id="flowchart">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Engineering Workflow</div>
+        <h2 class="section-title">Algorithmic Problem-Solving Flow</h2>
+        <p class="section-subtitle">
+          How computer scientists and data engineers systematically evaluate problem constraints to choose the optimal design strategy.
+        </p>
+      </div>
+
+      <div class="flowchart-container">
+        <!-- Step 1: Problem -->
+        <div class="flow-step">
+          <div class="flow-node problem-node">
+            <span>📌</span> PROBLEM STATEMENT
+          </div>
+          <div class="flow-arrow"></div>
+        </div>
+
+        <!-- Step 2: Understand -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <span>🔍</span> UNDERSTAND OBJECTIVES & INPUTS
+          </div>
+          <div class="flow-arrow"></div>
+        </div>
+
+        <!-- Step 3: Analyze Constraints -->
+        <div class="flow-step">
+          <div class="flow-node">
+            <span>📊</span> ANALYZE CONSTRAINTS & SUBSTRUCTURE
+          </div>
+          <div class="flow-arrow"></div>
+        </div>
+
+        <!-- Step 4: Decision Node -->
+        <div class="flow-step">
+          <div class="flow-node decision-node">
+            <span>⚡</span> CHOOSE DESIGN PRINCIPLE
+          </div>
+          <div class="flow-arrow"></div>
+        </div>
+
+        <!-- 4 Branch Choices (Clickable!) -->
+        <div class="flow-branch-row">
+          <div class="flow-card-choice" data-algo="merge-sort">
+            <div class="flow-choice-title">Divide & Conquer</div>
+            <div class="flow-choice-sub">Subproblems are disjoint & independent</div>
+            <span class="flow-choice-badge">Simulate Merge Sort →</span>
+          </div>
+
+          <div class="flow-card-choice" data-algo="greedy">
+            <div class="flow-choice-title">Greedy Method</div>
+            <div class="flow-choice-sub">Local optimum guarantees global optimum</div>
+            <span class="flow-choice-badge">Simulate Activity Selection →</span>
+          </div>
+
+          <div class="flow-card-choice" data-algo="knapsack">
+            <div class="flow-choice-title">Dynamic Programming</div>
+            <div class="flow-choice-sub">Subproblems repeat & overlap heavily</div>
+            <span class="flow-choice-badge">Simulate 0/1 Knapsack →</span>
+          </div>
+
+          <div class="flow-card-choice" data-algo="nqueens">
+            <div class="flow-choice-title">Backtracking</div>
+            <div class="flow-choice-sub">Search space requires trial & state undo</div>
+            <span class="flow-choice-badge">Simulate N-Queens →</span>
+          </div>
+        </div>
+
+        <!-- Step 5: Implement -->
+        <div class="flow-step" style="margin-top: 1rem;">
+          <div class="flow-arrow"></div>
+          <div class="flow-node">
+            <span>💻</span> IMPLEMENT SOLUTION
+          </div>
+          <div class="flow-arrow"></div>
+        </div>
+
+        <!-- Step 6: Evaluate Result -->
+        <div class="flow-step">
+          <div class="flow-node problem-node" style="border-color: #10b981; background: linear-gradient(135deg, #ffffff 0%, rgba(16, 185, 129, 0.08) 100%);">
+            <span>✅</span> EVALUATE RESULT & BENCHMARK COMPLEXITY
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. LEARNING / EXPLANATION PANEL
+       ======================================================================== -->
+  <section class="learning-section" id="learn">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Concept Deep-Dive</div>
+        <h2 class="section-title">Core Principles & Mathematical Theory</h2>
+        <p class="section-subtitle">
+          Concise pedagogical breakdown for <span id="learn-active-title" style="color: var(--accent-primary); font-weight: 700;">Divide and Conquer (Merge Sort)</span>.
+        </p>
+      </div>
+
+      <div class="learn-cards-grid">
+        <!-- Card 1: Key Idea -->
+        <div class="learn-card">
+          <div class="learn-header">
+            <div class="learn-icon">💡</div>
+            <h4 class="learn-title">Key Idea</h4>
+          </div>
+          <p id="learn-key-idea">
+            Break a complex problem down into independent, identical smaller subproblems, solve each recursively, and combine their solutions.
+          </p>
+        </div>
+
+        <!-- Card 2: How It Works -->
+        <div class="learn-card">
+          <div class="learn-header">
+            <div class="learn-icon">⚙️</div>
+            <h4 class="learn-title">How It Works</h4>
+          </div>
+          <ul class="learn-list" id="learn-how-it-works-list">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+
+        <!-- Card 3: Where It Is Useful -->
+        <div class="learn-card">
+          <div class="learn-header">
+            <div class="learn-icon">🌍</div>
+            <h4 class="learn-title">Where It Is Useful</h4>
+          </div>
+          <p id="learn-where-useful">
+            External sorting of large datasets that do not fit in RAM, stable sorting pipelines, Linked List sorting, and distributed parallel computations (MapReduce).
+          </p>
+        </div>
+
+        <!-- Card 4: Concrete Example -->
+        <div class="learn-card">
+          <div class="learn-header">
+            <div class="learn-icon">📝</div>
+            <h4 class="learn-title">Concrete Example</h4>
+          </div>
+          <p id="learn-example" class="mono" style="font-size: 0.85rem; background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px;">
+            Sorting [38, 27, 43, 3, 9, 82, 10] into [3, 9, 10, 27, 38, 43, 82].
+          </p>
+        </div>
+
+        <!-- Card 5: Complexity Analysis -->
+        <div class="learn-card" style="grid-column: 1 / -1;">
+          <div class="learn-header">
+            <div class="learn-icon">⏱️</div>
+            <h4 class="learn-title">Complexity Analysis & Recurrence</h4>
+          </div>
+          <p id="learn-complexity" style="font-weight: 600; color: var(--text-primary); font-family: var(--font-mono);">
+            Time: O(n log n) in all cases. Space: O(n) auxiliary space for merging.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-title">Algorithm Design Principles – Interactive Learning Tool</div>
+      <div class="footer-dept">Department of Computer Science and Engineering (Data Science)</div>
+      <div class="footer-divider"></div>
+      <p class="footer-note">
+        Designed as an interactive curriculum demonstration for B.Tech Computer Science and Data Science students. Covers Divide & Conquer, Greedy Algorithms, Dynamic Programming, and Backtracking paradigms.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Simulation Scripts -->
+  <script src="js/mergeSortSim.js"></script>
+  <script src="js/greedySim.js"></script>
+  <script src="js/knapsackSim.js"></script>
+  <script src="js/nqueensSim.js"></script>
+  <script src="js/flowDiagram.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
