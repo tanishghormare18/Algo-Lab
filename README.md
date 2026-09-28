@@ -32,7 +32,7 @@ Then open **`index.html`** in your browser, or use **VS Code Live Server** for t
 
 ## 🌐 Live Demo
 
-Add your GitHub Pages link here.
+https://tanishghormare18.github.io/Algo-Lab/
 
 ## 👨‍💻 Creator
 
